@@ -1,4 +1,4 @@
-## Chess Numbers
+# Chess Numbers
 
 The program calculates the total count of numbers that can be produced by a chess piece placed on a standard keypad using legal moves.
 <p align="center">
