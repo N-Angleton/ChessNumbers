@@ -58,7 +58,7 @@ public class App {
     
     System.out.println("You selected a " + piece);
 
-    moves = Pieces.getPrevPositions(inputLetter);
+    moves = Pieces.getNextPositions(inputLetter);
 
     System.out.println("\nPlease select the maximum length of a number to make (>= 1):\n");
 
@@ -91,10 +91,10 @@ public class App {
 
     while (count < inputInt) {
       for (int currentPosition = 0; currentPosition <= 9; currentPosition++) {
-        ArrayList<Integer> possiblePriorPositions = moves.get(currentPosition);
+        ArrayList<Integer> possibleNextPositions = moves.get(currentPosition);
         int value = 0;
-        for (int priorSpot : possiblePriorPositions) {
-          value += permutations[priorSpot];
+        for (int nextSpot : possibleNextPositions) {
+          value += permutations[nextSpot];
         }
         temp[currentPosition] = value;
       }

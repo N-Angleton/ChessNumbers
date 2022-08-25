@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Pieces {
 
-  public static HashMap<Integer, ArrayList<Integer>> getPrevPositions(String firstLetter) {
+  public static HashMap<Integer, ArrayList<Integer>> getNextPositions(String firstLetter) {
     if (firstLetter.equals("P")) {
       return pawnMoves();
     } else if (firstLetter.equals("N")) {
@@ -25,10 +25,10 @@ public class Pieces {
 
     for (int i = 0; i <= 9; i++) {
       ArrayList<Integer> moveSubset = new ArrayList<Integer>();
-      if (i < 7 && i != 0) {
-        moveSubset.add(i + 3);
-      } else if (i == 8) {
-        moveSubset.add(0);
+      if (i > 3) {
+        moveSubset.add(i - 3);
+      } else if (i == 0) {
+        moveSubset.add(8);
       }
       moves.put(i, moveSubset);
     }
