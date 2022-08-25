@@ -1,18 +1,11 @@
-## Getting Started
+## Chess Numbers
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+The program calculates the total count of numbers that can be produced by a chess piece placed on a standard keypad using legal moves.
+<p align="center">
+1 2 3<br>
+4 5 6<br>
+7 8 9<br>
+* 0 #<br>
+</p>
 
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+It can be run in console using the ```main``` method in App.java. The user will be prompted to select the piece type and maximum length of number. The solution will then be printed out below.
