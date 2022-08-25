@@ -29,7 +29,7 @@ Of the variety of ways this problem could be solved, one direct method is using 
 [ 1 ]<br>
 </p>
 
-We can think of this as representing the ten possible starting positions, with the rows being numbered from 0 to 9. If we multiply this matrix by a 10x10 matrix that corresponds to the moves of the designated piece we can produce a new 10x1 matrix representing the weighted possible states after one move. It will be weighted in the sense that each row's value will represent how many distinct paths lead to that row. We can multiply by the 10x10 matrix as many times as needed to reach the desired length. Interestingly, if we wanted to designate specific starting squares, we only need to set the row values of the excluded squares to 0.
+We can think of this as representing the ten possible starting positions, with the rows being numbered from 0 to 9. If we multiply this matrix by a 10x10 matrix that corresponds to the moves of the designated chess piece we can produce a new 10x1 matrix representing the weighted possible states after one move. It will be weighted in the sense that each row's value will represent how many distinct paths lead to that row. We can multiply that new matrix by the 10x10 matrix again, and so on as many times as are needed to reach the desired length. Interestingly, if we wanted to designate specific starting squares, we only need to set the row values of the excluded squares to 0 in the initial 10x1 matrix.
 
 As an example, the 10x10 matrix for a knight is as follows:
 
@@ -69,4 +69,4 @@ private static HashMap<Integer, ArrayList<Integer>> bishopMoves() {
 }
 ```
 
-While effective, the approach does lack a little in elegance and could be an opportunity for refactoring.
+While effective, the approach does lack a little in elegance and is susceptible to human error. It could be an opportunity for refactoring.
