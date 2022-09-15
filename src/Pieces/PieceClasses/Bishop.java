@@ -1,9 +1,9 @@
 package Pieces.PieceClasses;
 
 import Pieces.DirectionInterfaces.Bishopeque;
-import Pieces.MoveTypeClasses.Slideable;
+import Pieces.MoveTypeClasses.Slidable;
 
-public class Bishop extends Slideable implements Bishopeque {
+public class Bishop extends Slidable implements Bishopeque {
 
     public Bishop() {
         setDirections();

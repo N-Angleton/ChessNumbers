@@ -3,7 +3,7 @@ package Pieces.MoveTypeClasses;
 import Pieces.Piece;
 import java.util.ArrayList;
 
-public abstract class Slideable extends Piece {
+public abstract class Slidable extends Piece {
 
     protected void generateMovemap() {
         for (Integer i = 0; i < 10; i++) {

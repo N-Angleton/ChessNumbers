@@ -2,9 +2,9 @@ package Pieces.PieceClasses;
 
 import Pieces.DirectionInterfaces.Bishopeque;
 import Pieces.DirectionInterfaces.Rookesque;
-import Pieces.MoveTypeClasses.Slideable;
+import Pieces.MoveTypeClasses.Slidable;
 
-public class Queen extends Slideable implements Bishopeque, Rookesque {
+public class Queen extends Slidable implements Bishopeque, Rookesque {
 
     public Queen() {
         setDirections();

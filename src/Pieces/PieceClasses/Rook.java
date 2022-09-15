@@ -1,9 +1,9 @@
 package Pieces.PieceClasses;
 
 import Pieces.DirectionInterfaces.Rookesque;
-import Pieces.MoveTypeClasses.Slideable;
+import Pieces.MoveTypeClasses.Slidable;
 
-public class Rook extends Slideable implements Rookesque {
+public class Rook extends Slidable implements Rookesque {
 
     public Rook() {
         setDirections();
