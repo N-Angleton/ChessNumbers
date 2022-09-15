@@ -51,19 +51,19 @@ Now, given that many of the matrix values are 0, the actual approach taken with 
 To construct these HashMaps, one option would be to take an object-oriented approach and build a robust model of the different piece types and the keypad as a 4x3 board, and then calculate legal moves. Instead, for the sake of computational speed and because the board is manageably small, this program primarily uses a more brute force approach:
 
 ```java
-private static HashMap<Integer, ArrayList<Integer>> bishopMoves() {
+private static HashMap<Integer, ArrayList<Integer>> knightMoves() {
     HashMap<Integer, ArrayList<Integer>> moves = new HashMap<Integer, ArrayList<Integer>>();
 
-    moves.put(0, new ArrayList<>(Arrays.asList(7,9)));
-    moves.put(1, new ArrayList<>(Arrays.asList(5,9)));
-    moves.put(2, new ArrayList<>(Arrays.asList(4,6)));
-    moves.put(3, new ArrayList<>(Arrays.asList(5,7)));
-    moves.put(4, new ArrayList<>(Arrays.asList(2,8)));
-    moves.put(5, new ArrayList<>(Arrays.asList(1,3,7,9)));
-    moves.put(6, new ArrayList<>(Arrays.asList(2,8)));
-    moves.put(7, new ArrayList<>(Arrays.asList(0,3,5)));
-    moves.put(8, new ArrayList<>(Arrays.asList(4,6)));
-    moves.put(9, new ArrayList<>(Arrays.asList(0,1,5)));
+    moves.put(0, new ArrayList<>(Arrays.asList(4,6)));
+    moves.put(1, new ArrayList<>(Arrays.asList(6,8)));
+    moves.put(2, new ArrayList<>(Arrays.asList(7,9)));
+    moves.put(3, new ArrayList<>(Arrays.asList(4,8)));
+    moves.put(4, new ArrayList<>(Arrays.asList(0,3,9)));
+    moves.put(5, new ArrayList<>(Arrays.asList()));
+    moves.put(6, new ArrayList<>(Arrays.asList(0,1,7)));
+    moves.put(7, new ArrayList<>(Arrays.asList(2,6)));
+    moves.put(8, new ArrayList<>(Arrays.asList(1,3)));
+    moves.put(9, new ArrayList<>(Arrays.asList(2,4)));
 
     return moves;
 }
