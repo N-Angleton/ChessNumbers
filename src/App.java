@@ -1,15 +1,23 @@
 import java.util.Scanner;
+
+import Pieces.Piece;
+import Pieces.PieceClasses.Bishop;
+import Pieces.PieceClasses.King;
+import Pieces.PieceClasses.Knight;
+import Pieces.PieceClasses.Pawn;
+import Pieces.PieceClasses.Queen;
+import Pieces.PieceClasses.Rook;
+
 import java.util.HashMap;
 import java.util.ArrayList;
 
 public class App {
 
   static String inputLetter;
-  static String piece;
+  static Piece piece;
   static Integer inputInt;
-  static HashMap<Integer, ArrayList<Integer>> moves;
-  static int[] permutations = {1,1,1,1,1,1,1,1,1,1};
-  static int[] solutions;
+  static Integer solution = 0;
+  static HashMap<Integer, Integer> solutions = new HashMap<Integer, Integer>();
 
   public static void main(String[] args) {
     retrieveInput();
@@ -43,22 +51,20 @@ public class App {
     }
 
     if (inputLetter.equals("P")) {
-      piece = "Pawn";
+      piece = new Pawn();
     } else if (inputLetter.equals("N")) {
-      piece = "Knight";
+      piece = new Knight();
     } else if (inputLetter.equals("B")) {
-      piece = "Bishop";
+      piece = new Bishop();
     } else if (inputLetter.equals("R")) {
-      piece = "Rook";
+      piece = new Rook();
     } else if (inputLetter.equals("Q")) {
-      piece = "Queen";
+      piece = new Queen();
     } else {
-      piece = "King";
+      piece = new King();
     }
     
-    System.out.println("You selected a " + piece);
-
-    moves = Pieces.getNextPositions(inputLetter);
+    System.out.println("\nYou selected a " + piece.toString());
 
     System.out.println("\nPlease select the maximum length of a number to make (>= 1):\n");
 
@@ -84,34 +90,42 @@ public class App {
   }
 
   public static void generateNumbers() {
-    int count = 1;
-    int[] temp = new int[10];
-    solutions = new int[inputInt];
-    solutions[0] = 10;
-
-    while (count < inputInt) {
-      for (int currentPosition = 0; currentPosition <= 9; currentPosition++) {
-        ArrayList<Integer> possibleNextPositions = moves.get(currentPosition);
-        int value = 0;
-        for (int nextSpot : possibleNextPositions) {
-          value += permutations[nextSpot];
-        }
-        temp[currentPosition] = value;
-      }
-      int sum = 0;
-      for (int i = 0; i < temp.length; i++) {
-        sum += temp[i];
-      }
-      solutions[count] = sum;
-      permutations = temp.clone();
-      count++;
+    for (Integer position = 0; position < 10; position++) {
+        solution += generateXNumbersFromPosY(inputInt - 1, position);
     }
+  }
+
+  public static Integer generateXNumbersFromPosY(Integer x, Integer y) {
+    if (x < 1) return 1;
+
+    Integer key = (y * (inputInt + 1)) + x;
+    if (solutions.containsKey(key)) {
+        return solutions.get(key);
+    }
+
+    Integer newSolutions = 0;
+    ArrayList<Integer> newPositions = piece.getNextPositions(y);
+
+    for (Integer position : newPositions) {
+        newSolutions += generateXNumbersFromPosY(x - 1, position);
+    }
+
+    solutions.put(key, newSolutions);
+
+    return newSolutions;
   }
 
   public static void printSolution() {
-    System.out.println("\nLength of number: count of numbers of given length");
-    for (int i = 0; i < solutions.length; i++) {
-      System.out.println(i + 1 + ": " + solutions[i]);
+    if ("QK".contains(inputLetter)) {
+        System.out.print("The ");
+    } else {
+        System.out.print("A ");
     }
+    System.out.print(piece.toString() + " can produce " + solution + " numbers with " + inputInt + " digit");
+    if (inputInt > 1) {
+        System.out.print("s");
+    }
+    System.out.println("\n");
   }
+
 }
