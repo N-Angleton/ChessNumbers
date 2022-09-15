@@ -18,9 +18,6 @@ public abstract class Stepable extends Piece {
                 Integer xdiff = direction[0];
                 Integer ydiff = direction[1];
 
-                System.out.println(xdiff);
-                System.out.println(ydiff);
-
                 if (validPos(x + xdiff, y + ydiff)) {
                     nextLocations.add(convertXYtoNum(x + xdiff, y + ydiff));
                 }

@@ -6,9 +6,7 @@ public class Pawn extends Stepable {
 
     public Pawn() {
         setDirections();
-        System.out.println(directions);
         generateMovemap();
-        System.out.println(moveMap);
     }
     
     protected void setDirections() {
